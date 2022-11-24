@@ -1,0 +1,25 @@
+{% extends "board/base_window.html" %}
+{% load static %}
+
+{% block content %}
+
+
+{% for arch in archived_windows %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{{ window.image.url }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ arch.title }}</h5>
+            <div>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_board.html" %}
+{% block content %}
+
+
+    <div style="padding:40px;margin:40px;border:1px solid #ccc">
+    <h1>Django File Upload</h1>
+    <form action="{% url 'fileupload' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form><hr>
+    <ul>
+    {% for document in documents %}
+        <li>
+            <a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a>
+            <small>({{ document.docfile.size|filesizeformat }})</small>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
